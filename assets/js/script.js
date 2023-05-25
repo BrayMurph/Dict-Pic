@@ -17,3 +17,16 @@ fetch(giphyUrl)
     console.log('Fetch Response \n-------------');
     console.log(data);
   });
+
+
+//Define button function 
+$(function() {
+  var defineBtn = $(".searchButton");
+
+  defineBtn.on("click", function () {
+    //call unirest API for defintion
+    //convert to text in html document
+  })
+});
+
+//function to start gifs AFTER defintion
