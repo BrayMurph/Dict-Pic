@@ -1,0 +1,14 @@
+html, body {
+    background-color: #383838;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    height: 100%;
+    margin: 0;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
