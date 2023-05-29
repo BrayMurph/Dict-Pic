@@ -28,6 +28,8 @@ fetch(wordApiRequest, {
       console.log(data);
   });
 
+//add word to url for giph
+
 function loadGiphys() {
   var giphyPlace = new XMLHttpRequest();
   giphyPlace.onreadystatechange = function() {
