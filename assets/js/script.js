@@ -18,11 +18,13 @@ function wordApi(wordUrl) {
   });
 }
 
+//to enter search word into URL for word API
 function handleSearchFormSubmit (event) {
   event.preventDefault();
 
   var searchInputVal = document.querySelector(".searchWord").value;
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
+  var gifUrl = "https://giphy.com/gifs/seinfeld-soup-no-for-you-j2pOFyuTJqWj9S5qdE";
 
   
   if(!searchInputVal) {
@@ -31,33 +33,51 @@ function handleSearchFormSubmit (event) {
   }
 
   wordUrl = wordUrl + searchInputVal;
+  gifUrl =+ searchInputVal;
 
   wordApi(wordUrl);
-}
+  gifApi(gifUrl);
+};
+
 
 fetchButton.addEventListener("click", handleSearchFormSubmit);
 
 
 // GIPHY API key with JSON call
-var giphyUrl = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=Soup&limit=25&offset=0&rating=g&lang=en";
+function gifApi(giphyUrl) {
+  var giphyUrl = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=Soup&limit=25&offset=0&rating=g&lang=en";
 
-fetch(giphyUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log('Fetch Giphy API Response \n-------------');
-    console.log(data);
+  fetch(giphyUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log('Fetch Giphy API Response \n-------------');
+      console.log(data);
   });
+};
 
+//add word to url for giph
+
+// populate gif to webpage
+function loadGiphys() {
+  var giphyPlace = new XMLHttpRequest();
+  giphyPlace.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = JSON.parse(this.responseText);
+      document.getElementById("gifs").src = data.results[0].picture.large
+    }
+  };
+  giphyPlace.open("GET", "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=Soup&limit=25&offset=0&rating=g&lang=en", true);
+  giphyPlace.send();
+}
 
 //Define button function 
 $(function() {
   var defineBtn = $(".searchButton");
 
-  defineBtn.on("click", function () {
-    //call unirest API for defintion
-    //convert to text in html document
+  defineBtn.on("click", function() {
+    console.log("clicked!")
   })
 });
 
