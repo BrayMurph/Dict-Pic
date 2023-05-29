@@ -39,6 +39,7 @@ function handleSearchFormSubmit (event) {
   gifApi(gifUrl);
 };
 
+
 fetchButton.addEventListener("click", handleSearchFormSubmit);
 
 
