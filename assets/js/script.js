@@ -33,7 +33,6 @@ function handleSearchFormSubmit (event) {
   wordUrl = wordUrl + searchInputVal;
 
   wordApi(wordUrl);
-
 }
 
 fetchButton.addEventListener("click", handleSearchFormSubmit);
