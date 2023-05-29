@@ -18,11 +18,13 @@ function wordApi(wordUrl) {
   });
 }
 
+//to enter search word into URL for word API
 function handleSearchFormSubmit (event) {
   event.preventDefault();
 
   var searchInputVal = document.querySelector(".searchWord").value;
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
+  var gifUrl = "https://giphy.com/gifs/seinfeld-soup-no-for-you-j2pOFyuTJqWj9S5qdE";
 
   
   if(!searchInputVal) {
@@ -31,15 +33,17 @@ function handleSearchFormSubmit (event) {
   }
 
   wordUrl = wordUrl + searchInputVal;
+  gifUrl =+ searchInputVal;
 
   wordApi(wordUrl);
-
-}
+  gifApi(gifUrl);
+};
 
 fetchButton.addEventListener("click", handleSearchFormSubmit);
 
 
 // GIPHY API key with JSON call
+function gifApi(giphyUrl) {
   var giphyUrl = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=Soup&limit=25&offset=0&rating=g&lang=en";
 
   fetch(giphyUrl)
@@ -50,9 +54,11 @@ fetchButton.addEventListener("click", handleSearchFormSubmit);
       console.log('Fetch Giphy API Response \n-------------');
       console.log(data);
   });
+};
 
 //add word to url for giph
 
+// populate gif to webpage
 function loadGiphys() {
   var giphyPlace = new XMLHttpRequest();
   giphyPlace.onreadystatechange = function() {
