@@ -24,16 +24,16 @@ function handleSearchFormSubmit (event) {
 
   var searchInputVal = document.querySelector(".searchWord").value;
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
-  var gifUrl = "https://giphy.com/gifs/seinfeld-soup-no-for-you-j2pOFyuTJqWj9S5qdE";
+  var gifUrlStart = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=";
+  var gifUrlEnd = "&limit=50&offset=0&rating=g&lang=en";
 
-  
   if(!searchInputVal) {
     console.error("You need to enter a word!");
     return;
   }
 
   wordUrl = wordUrl + searchInputVal;
-  gifUrl =+ searchInputVal;
+  gifUrl = gifUrlStart + searchInputVal + gifUrlEnd;
 
   wordApi(wordUrl);
   gifApi(gifUrl);
@@ -44,10 +44,9 @@ fetchButton.addEventListener("click", handleSearchFormSubmit);
 
 
 // GIPHY API key with JSON call
-function gifApi(giphyUrl) {
-  var giphyUrl = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=Soup&limit=25&offset=0&rating=g&lang=en";
+function gifApi(gifUrl) {
 
-  fetch(giphyUrl)
+  fetch(gifUrl)
     .then(function (response) {
       return response.json();
     })
