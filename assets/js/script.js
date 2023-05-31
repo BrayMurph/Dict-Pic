@@ -54,6 +54,10 @@ function gifApi(gifUrl) {
     .then(function (data) {
       console.log('Fetch Giphy API Response \n-------------');
       console.log(data);
+      
+      //trying to log first
+      var gif = data.embed_url;
+      console.log(gif);
 
     //You should be able to find a giph/img url somewhere in the returned response which 
     //you can use javascript to set as the source to an image in your html.
@@ -66,21 +70,21 @@ function gifApi(gifUrl) {
 };
 //fetchButton.addEventListener("click", gifApi);
 
-function loadGiphys() {
-  var figure = document.createElement("figure");
-  var img = document.createElement("img");
-  var caption = document.createElement("figurecaption");
+//function loadGiphys() {
+  //var figure = document.createElement("figure");
+  //var img = document.createElement("img");
+  //var caption = document.createElement("figurecaption");
 
-  img.src = content.data[0].embed_url;
-  img.alt = content.data[0].title;
+  //img.src = content.data[0].embed_url;
+  //img.alt = content.data[0].title;
       
-  caption.textContent = content.data[0].title;
-      figure.appendChild(img);
-      figure.appendChild(caption);
-  let populate = document .querySelector(".gifs");
-      populate.insertAdjacentElement("afterbegin", figure);
-};
-fetchButton.addEventListener("click", loadGiphys);
+  //caption.textContent = content.data[0].title;
+      //figure.appendChild(img);
+      //figure.appendChild(caption);
+  //let populate = document .querySelector(".gifs");
+      //populate.insertAdjacentElement("afterbegin", figure);
+//};
+//fetchButton.addEventListener("click", loadGiphys);
 
 // populate gif to webpage
 //function loadGiphys() {
