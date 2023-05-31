@@ -19,6 +19,7 @@ function wordApi(wordUrl) {
 }
 
 //to enter search word into URL for word API
+//add word to url for giph
 function handleSearchFormSubmit (event) {
   event.preventDefault();
 
@@ -42,7 +43,7 @@ function handleSearchFormSubmit (event) {
 
 fetchButton.addEventListener("click", handleSearchFormSubmit);
 
-
+//var giphyContainer = document.getElementById('giphyContainer');
 // GIPHY API key with JSON call
 function gifApi(gifUrl) {
 
@@ -53,23 +54,15 @@ function gifApi(gifUrl) {
     .then(function (data) {
       console.log('Fetch Giphy API Response \n-------------');
       console.log(data);
+      //for (var i = 0; i < data.length; i++) {
+        //var gif = document.createElement('h3');
+        //gif.textContent = data[i].embed_url;
+        //issueContainer.append(gif);
+      //}
   });
 };
 
-//add word to url for giph
-
-// populate gif to webpage
-function loadGiphys() {
-  var giphyPlace = new XMLHttpRequest();
-  giphyPlace.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      document.getElementById("gifs").src = data.results[0].picture.large
-    }
-  };
-  giphyPlace.open("GET", "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=Soup&limit=25&offset=0&rating=g&lang=en", true);
-  giphyPlace.send();
-}
+//fetchButton.addEventListener("click", gifApi);
 
 //Define button function 
 $(function() {
