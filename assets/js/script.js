@@ -43,7 +43,7 @@ function handleSearchFormSubmit (event) {
 
 fetchButton.addEventListener("click", handleSearchFormSubmit);
 
-//var giphyContainer = document.getElementById('giphyContainer');
+var giphyContainer = document.getElementById('giphyContainer');
 // GIPHY API key with JSON call
 function gifApi(gifUrl) {
 
@@ -54,11 +54,11 @@ function gifApi(gifUrl) {
     .then(function (data) {
       console.log('Fetch Giphy API Response \n-------------');
       console.log(data);
-      //for (var i = 0; i < data.length; i++) {
-        //var gif = document.createElement('h3');
-        //gif.textContent = data[i].embed_url;
-        //issueContainer.append(gif);
-      //}
+      for (var i = 0; i < data.length; i++) {
+        var gif = document.createElement('h3');
+        gif.textContent = data[i].embed_url;
+        issueContainer.append(gif);
+      }
   });
 };
 
