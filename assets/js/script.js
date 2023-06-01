@@ -20,10 +20,16 @@ function wordApi(wordUrl) {
     for (var i = 0; i < data.results.length; i++) {
     var def = data.results[i].definition;
      console.log(def);
-    var define = document.getElementById("define");
-    var heading = document.createElement("h1");
-    heading.innerHTML = def;
-    define.appendChild(heading);
+    // var define = document.getElementById("define");
+    // var heading = document.createElement("h1");
+    // heading.innerHTML = def;
+    // define.appendChild(heading);
+    document.getElementById("define1").innerHTML = data.results[0].definition
+    document.getElementById("define2").innerHTML = data.results[1].definition
+    document.getElementById("define3").innerHTML = data.results[2].definition
+    document.getElementById("define4").innerHTML = data.results[3].definition
+    document.getElementById("define5").innerHTML = data.results[4].definition
+
     }
   });
 }
