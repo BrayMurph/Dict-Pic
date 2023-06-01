@@ -56,8 +56,16 @@ function gifApi(gifUrl) {
       console.log(data);
       
       //trying to log first
-      var gif = data.embed_url;
+      var gif = data.data[0].images.downsized.url;
       console.log(gif);
+
+      var populateGif = document.getElementById("giphyContainer");
+      var gifElement = document.createElement("img");
+      
+      gifElement.innerHTML = gif;
+      populateGif.appendChild(gifElement);
+
+      gifElement.src = data.data[0].images.downsized.url;
 
     //You should be able to find a giph/img url somewhere in the returned response which 
     //you can use javascript to set as the source to an image in your html.
@@ -75,7 +83,7 @@ function gifApi(gifUrl) {
   //var img = document.createElement("img");
   //var caption = document.createElement("figurecaption");
 
-  //img.src = content.data[0].embed_url;
+  //img.src = data.data[0].images.downsized.url;
   //img.alt = content.data[0].title;
       
   //caption.textContent = content.data[0].title;
@@ -84,7 +92,10 @@ function gifApi(gifUrl) {
   //let populate = document .querySelector(".gifs");
       //populate.insertAdjacentElement("afterbegin", figure);
 //};
-//fetchButton.addEventListener("click", loadGiphys);
+
+
+
+
 
 // populate gif to webpage
 //function loadGiphys() {
