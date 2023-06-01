@@ -67,16 +67,21 @@ function gifApi(gifUrl) {
       console.log(data);
       
       //trying to log first
-      var gif = data.data[0].images.downsized.url;
-      console.log(gif);
-
-      var populateGif = document.getElementById("giphyContainer");
-      var gifElement = document.createElement("img");
       
-      gifElement.innerHTML = gif;
-      populateGif.appendChild(gifElement);
 
-      gifElement.src = data.data[0].images.downsized.url;
+      for (let i = 0; i < data.data.length; i++) {
+        var gif = data.data[i].images.downsized.url;
+        console.log(gif);
+
+        var populateGif = document.getElementById("giphyContainer");
+        var gifElement = document.createElement("img");
+      
+        gifElement.innerHTML = gif;
+        populateGif.appendChild(gifElement);
+
+        gifElement.src = data.data[i].images.downsized.url;
+        
+      }
   });
 };
 
