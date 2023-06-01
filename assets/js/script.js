@@ -33,7 +33,6 @@ function wordApi(wordUrl) {
 //add word to url for giph
 function handleSearchFormSubmit (event) {
   event.preventDefault();
-  //var definite = "/definitions"
   var searchInputVal = document.querySelector(".searchWord").value;
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
   var gifUrlStart = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=";
@@ -66,17 +65,19 @@ function gifApi(gifUrl) {
       console.log('Fetch Giphy API Response \n-------------');
       console.log(data);
       
-      //trying to log first
-      var gif = data.data[0].images.downsized.url;
-      console.log(gif);
+      for (let i = 0; i < data.data.length; i++) {
+        var gif = data.data[i].images.downsized.url;
+        console.log(gif);
 
-      var populateGif = document.getElementById("giphyContainer");
-      var gifElement = document.createElement("img");
+        var populateGif = document.getElementById("giphyContainer");
+        var gifElement = document.createElement("img");
       
-      gifElement.innerHTML = gif;
-      populateGif.appendChild(gifElement);
+        gifElement.innerHTML = gif;
+        populateGif.appendChild(gifElement);
 
-      gifElement.src = data.data[0].images.downsized.url;
+        gifElement.src = data.data[i].images.downsized.url;
+        
+      }
   });
 };
 
