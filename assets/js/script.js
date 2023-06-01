@@ -1,13 +1,14 @@
 // Words API key with JSON call
 var fetchButton = document.querySelector(".searchButton");
 
+
 function wordApi(wordUrl) {
   fetch(wordUrl, {
   method: "GET",
   credentials: "include",
   headers: {
     "Content-Type": "application/json",
-    "X-Mashape-Key": "1ca162c33fmsha588cae174d0a24p1028f3jsnc1881d0ea824"
+    "X-Mashape-Key": "2226cf8c78msh337974c2e3152bap13deb7jsnb24580be881e"
   }
 }).then(function (response) {
   return response.json();
@@ -15,14 +16,24 @@ function wordApi(wordUrl) {
   .then(function (data) {
     console.log('Fetch Word API Response \n-------------');
     console.log(data);
+    // To get the definitions onto the page
+    for (var i = 0; i < data.results.length; i++) {
+    var def = data.results[i].definition;
+     console.log(def);
+    var define = document.getElementById("define");
+    var heading = document.createElement("h1");
+    heading.innerHTML = def;
+    define.appendChild(heading);
+    }
   });
 }
+
 
 //to enter search word into URL for word API
 //add word to url for giph
 function handleSearchFormSubmit (event) {
   event.preventDefault();
-
+  //var definite = "/definitions"
   var searchInputVal = document.querySelector(".searchWord").value;
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
   var gifUrlStart = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=";
