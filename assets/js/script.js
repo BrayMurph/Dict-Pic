@@ -34,12 +34,14 @@ function wordApi(wordUrl) {
   });
 }
 
-
 //to enter search word into URL for word API
 //add word to url for giph
 function handleSearchFormSubmit (event) {
   event.preventDefault();
   var searchInputVal = document.querySelector(".searchWord").value;
+  searchInputVal.innerHTML = "";
+  var populateGif = document.getElementById("giphyContainer");
+  populateGif.innerHTML = "";
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
   var gifUrlStart = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=";
   var gifUrlEnd = "&limit=50&offset=0&rating=g&lang=en";
@@ -56,10 +58,6 @@ function handleSearchFormSubmit (event) {
   gifApi(gifUrl);
 };
 
-
-fetchButton.addEventListener("click", handleSearchFormSubmit);
-
-var giphyContainer = document.getElementById('giphyContainer');
 // GIPHY API key with JSON call
 function gifApi(gifUrl) {
 
@@ -74,16 +72,13 @@ function gifApi(gifUrl) {
       for (let i = 0; i < data.data.length; i++) {
         var gif = data.data[i].images.downsized.url;
         console.log(gif);
-
         var populateGif = document.getElementById("giphyContainer");
         var gifElement = document.createElement("img");
-      
         gifElement.innerHTML = gif;
         populateGif.appendChild(gifElement);
-
         gifElement.src = data.data[i].images.downsized.url;
-        
       }
+      
   });
 };
 
@@ -96,4 +91,5 @@ $(function() {
   })
 });
 
+fetchButton.addEventListener("click", handleSearchFormSubmit);
 //function to start gifs AFTER defintion
