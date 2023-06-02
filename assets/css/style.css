@@ -11,7 +11,7 @@ html, body {
     height: 100%;
 }
 
-.definition1{
+.definition{
     display: flex;
     justify-content: center;
     color: white;
@@ -19,38 +19,6 @@ html, body {
     margin: 5px
 }
 
-.definition2{
-    display: flex;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    margin: 5px
-}
-
-
-.definition3{
-    display: flex;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    margin: 5px
-}
-
-.definition4{
-    display: flex;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    margin: 5px
-}
-
-.definition5{
-    display: flex;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    margin: 5px
-}
 .gifs {
     display: flex;
     justify-content: center;

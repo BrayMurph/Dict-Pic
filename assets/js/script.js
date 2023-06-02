@@ -20,16 +20,11 @@ function wordApi(wordUrl) {
     for (var i = 0; i < data.results.length; i++) {
     var def = data.results[i].definition;
      console.log(def);
-    // var define = document.getElementById("define");
-    // var heading = document.createElement("h1");
-    // heading.innerHTML = def;
-    // define.appendChild(heading);
-    document.getElementById("define1").innerHTML = data.results[0].definition
-    document.getElementById("define2").innerHTML = data.results[1].definition
-    document.getElementById("define3").innerHTML = data.results[2].definition
-    document.getElementById("define4").innerHTML = data.results[3].definition
-    document.getElementById("define5").innerHTML = data.results[4].definition
-
+    var defineEl = $("<li>");
+    var defEl = $("#define1");
+    defineEl.text("Definition: " + def);
+    defineEl.attr("class", "definition");
+    defEl.append(defineEl);
     }
   });
 }
@@ -39,7 +34,8 @@ function wordApi(wordUrl) {
 function handleSearchFormSubmit (event) {
   event.preventDefault();
   var searchInputVal = document.querySelector(".searchWord").value;
-  searchInputVal.innerHTML = "";
+  var defEl = $("#define1");
+  defEl.text("");
   var populateGif = document.getElementById("giphyContainer");
   populateGif.innerHTML = "";
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
