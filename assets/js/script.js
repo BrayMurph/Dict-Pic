@@ -20,26 +20,24 @@ function wordApi(wordUrl) {
     for (var i = 0; i < data.results.length; i++) {
     var def = data.results[i].definition;
      console.log(def);
-    // var define = document.getElementById("define");
-    // var heading = document.createElement("h1");
-    // heading.innerHTML = def;
-    // define.appendChild(heading);
-    document.getElementById("define1").innerHTML = data.results[0].definition
-    document.getElementById("define2").innerHTML = data.results[1].definition
-    document.getElementById("define3").innerHTML = data.results[2].definition
-    document.getElementById("define4").innerHTML = data.results[3].definition
-    document.getElementById("define5").innerHTML = data.results[4].definition
-
+    var defineEl = $("<li>");
+    var defEl = $("#define1");
+    defineEl.text("Definition: " + def);
+    defineEl.attr("class", "definition");
+    defEl.append(defineEl);
     }
   });
 }
-
 
 //to enter search word into URL for word API
 //add word to url for giph
 function handleSearchFormSubmit (event) {
   event.preventDefault();
   var searchInputVal = document.querySelector(".searchWord").value;
+  var defEl = $("#define1");
+  defEl.text("");
+  var populateGif = document.getElementById("giphyContainer");
+  populateGif.innerHTML = "";
   var wordUrl = "https://wordsapiv1.p.rapidapi.com/words/";
   var gifUrlStart = "https://api.giphy.com/v1/gifs/search?api_key=sHdrKgH0F2FvUch4VPlNpZXnhV4IHZTI&q=";
   var gifUrlEnd = "&limit=50&offset=0&rating=g&lang=en";
@@ -56,10 +54,6 @@ function handleSearchFormSubmit (event) {
   gifApi(gifUrl);
 };
 
-
-fetchButton.addEventListener("click", handleSearchFormSubmit);
-
-var giphyContainer = document.getElementById('giphyContainer');
 // GIPHY API key with JSON call
 function gifApi(gifUrl) {
 
@@ -74,16 +68,13 @@ function gifApi(gifUrl) {
       for (let i = 0; i < data.data.length; i++) {
         var gif = data.data[i].images.downsized.url;
         console.log(gif);
-
         var populateGif = document.getElementById("giphyContainer");
         var gifElement = document.createElement("img");
-      
         gifElement.innerHTML = gif;
         populateGif.appendChild(gifElement);
-
         gifElement.src = data.data[i].images.downsized.url;
-        
       }
+      
   });
 };
 
@@ -96,4 +87,5 @@ $(function() {
   })
 });
 
+fetchButton.addEventListener("click", handleSearchFormSubmit);
 //function to start gifs AFTER defintion
