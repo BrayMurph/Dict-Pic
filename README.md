@@ -15,6 +15,8 @@ This webpage is an online dictionary application that defines a word the user wa
 
 To use this webpage, use the URL below:
 
+[Link to Active Webpage](https://braymurph.github.io/Dict-Pic/) 
+
 aicnrgeihcgurxegceaincgrselih ea; 
 
 ## Usage
