@@ -20,9 +20,54 @@ html, body {
 }
 
 .gifs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
 
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+
+}
+
+img {
+    height: 200px;
+    width: 200px;
+
+}
+
+@media screen and (max-width: 990px) {
+    img {
+       width: 150%;
+       height: 150%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    img {
+        width: 150%;
+        height: 150%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    img {
+        width: 150%;
+        height: 150%;
+    }
+    #define1 {
+        padding: 50px 0 0 0;
+       font-size: 10px
+    }
+    #define2 {
+        padding: 10px 0 0 0;
+       font-size: 10px}
+
+     #define3 {
+        padding: 10px 0 0 0;
+       font-size: 10px    }
+     
+       #define4 {
+        padding: 10px 0 0 0;
+       font-size: 10px    }
+     
+       #define5 {
+        padding: 10px 0 0 0;
+       font-size: 10px    }
 }
