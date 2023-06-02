@@ -17,7 +17,6 @@ To use this webpage, use the URL below:
 
 [Link to Active Webpage](https://braymurph.github.io/Dict-Pic/) 
 
-aicnrgeihcgurxegceaincgrselih ea; 
 
 ## Usage
 
