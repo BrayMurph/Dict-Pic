@@ -1,7 +1,7 @@
-// Words API key with JSON call
+//search button
 var fetchButton = document.querySelector(".searchButton");
 
-
+//Words API key with JSON call
 function wordApi(wordUrl) {
   fetch(wordUrl, {
   method: "GET",
@@ -29,8 +29,7 @@ function wordApi(wordUrl) {
   });
 }
 
-//to enter search word into URL for word API
-//add word to url for giph
+//to enter searched word into API URL
 function handleSearchFormSubmit (event) {
   event.preventDefault();
   var searchInputVal = document.querySelector(".searchWord").value;
@@ -56,7 +55,6 @@ function handleSearchFormSubmit (event) {
 
 // GIPHY API key with JSON call
 function gifApi(gifUrl) {
-
   fetch(gifUrl)
     .then(function (response) {
       return response.json();
@@ -64,7 +62,7 @@ function gifApi(gifUrl) {
     .then(function (data) {
       console.log('Fetch Giphy API Response \n-------------');
       console.log(data);
-      
+      // To get the Giphy onto the page
       for (let i = 0; i < data.data.length; i++) {
         var gif = data.data[i].images.downsized.url;
         console.log(gif);
@@ -74,7 +72,6 @@ function gifApi(gifUrl) {
         populateGif.appendChild(gifElement);
         gifElement.src = data.data[i].images.downsized.url;
       }
-      
   });
 };
 
@@ -88,4 +85,3 @@ $(function() {
 });
 
 fetchButton.addEventListener("click", handleSearchFormSubmit);
-//function to start gifs AFTER defintion

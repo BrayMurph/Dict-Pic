@@ -4,6 +4,7 @@ html, body {
     margin: 100px;
 }
 
+/*For search bar*/
 .search {
     display: flex;
     justify-content: center;
@@ -11,6 +12,7 @@ html, body {
     height: 100%;
 }
 
+/*to style defintions when they populate to the page*/
 .definition{
     display: flex;
     justify-content: center;
@@ -19,19 +21,20 @@ html, body {
     margin: 5px
 }
 
+/*To style the Gif grid when they populate to the page*/
 .gifs {
-
     display: inline-grid;
     grid-template-columns: auto auto auto auto;
-
 }
 
+/*To style gif size*/
 img {
     height: 200px;
     width: 200px;
 
 }
 
+/* Tablets */
 @media screen and (max-width: 990px) {
     img {
        width: 150%;
@@ -43,6 +46,7 @@ img {
     }
 }
 
+/* Large smartphones */
 @media screen and (max-width: 768px) {
     img {
         width: 150%;
@@ -54,6 +58,7 @@ img {
     }
 }
 
+/* Small smartphones */
 @media screen and (max-width: 576px) {
     img {
         width: 150%;
