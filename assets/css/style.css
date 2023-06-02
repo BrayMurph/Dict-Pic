@@ -23,13 +23,12 @@ html, body {
 
     display: inline-grid;
     grid-template-columns: auto auto auto auto;
-
+    
 }
 
 img {
     height: 200px;
     width: 200px;
-
 }
 
 @media screen and (max-width: 990px) {

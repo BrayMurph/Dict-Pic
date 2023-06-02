@@ -87,5 +87,6 @@ $(function() {
   })
 });
 
+
 fetchButton.addEventListener("click", handleSearchFormSubmit);
 //function to start gifs AFTER defintion
